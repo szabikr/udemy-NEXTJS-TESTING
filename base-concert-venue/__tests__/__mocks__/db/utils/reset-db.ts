@@ -1,9 +1,9 @@
 import { readFakeData } from "@/__tests__/__mocks__/fakeData";
 import { filenames, writeJSONToFile } from "@/lib/db/db-utils";
 
-export const resetDB = async () => {
+export const resetDb = async () => {
   // failsafe against production db!
-  const safeToReset = process.env.NODE_ENV === "test";
+  const safeToReset = process.env.NODE_ENV === "test" || process.env.CYPRESS;
   if (!safeToReset) {
     // eslint-disable-next-line no-console
     console.log(
